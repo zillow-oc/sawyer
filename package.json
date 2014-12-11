@@ -1,6 +1,6 @@
 {
   "name": "sawyer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Winston wrapper for formatted logging requests via Koa or generic app",
   "maintainers": [
     "thecaddy"
