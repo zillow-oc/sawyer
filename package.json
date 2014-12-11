@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://diversesolutions.kilnhg.com/Code/Storm/libraries/sawyer.git"
+    "url": "https://github.com/zillow-oc/sawyer"
   },
   "dependencies": {
     "humanize-number": "0.0.2",
