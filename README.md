@@ -9,7 +9,7 @@ require('sawyer')({
     host: 'mydnshere',
     port: '1234',
     protocol: 'udp4',
-    app_name: 'ZNPM',
+    app_name: 'myapp',
     json: true
   }
 });
