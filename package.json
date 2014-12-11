@@ -1,0 +1,21 @@
+{
+  "name": "sawyer",
+  "version": "1.0.0",
+  "description": "Winston wrapper for formatted logging requests via Koa or generic app",
+  "maintainers": [
+    "thecaddy"
+  ],
+  "license": "ISC",
+  "engines": {
+    "node": ">=0.11.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://diversesolutions.kilnhg.com/Code/Storm/libraries/sawyer.git"
+  },
+  "dependencies": {
+    "humanize-number": "0.0.2",
+    "winston": "^0.8.1",
+    "winston-syslog": "^0.2.5"
+  }
+}
