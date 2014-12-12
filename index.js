@@ -66,7 +66,7 @@ module.exports = function(config) {
 
 	var logger,
 			sysLogger;
-	if(!config.syslog){
+	if(config.syslog){
 		sysLogger = new (winston.transports.Syslog)(config.syslog);
 		var theLogger = sysLogger.log;
 		sysLogger.log = function(level, msg, meta, callback){
