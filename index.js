@@ -88,7 +88,6 @@ module.exports = function(config) {
 					level: 'debug'
 				})
 			];
-			if(sysLogger) transports.push(sysLogger);
 			logger = new (winston.Logger)({
 				transports:	transports,
 				colors: wconfig.colors
