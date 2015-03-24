@@ -5,7 +5,7 @@
 var winston = require('winston'),
 	util = require('util'),
 	humanize = require('humanize-number'),
-	config = {}; 
+	config = {};
 
 require('winston-syslog').SysLog;
 
@@ -73,7 +73,7 @@ module.exports = function(config) {
 			var log = theLogger;
 			var msgObj = getSyslogMsg(level, msg, meta);
 			log.call(sysLogger, level, "[JSON.LOG]:" + JSON.stringify(msgObj), meta, callback);
-		} 
+		}
 	}
 	// Override the built-in console methods with winston hooks
 	console.log('Winston says process.env.NODE_ENV:', process.env.NODE_ENV);
@@ -120,6 +120,7 @@ module.exports = function(config) {
 					level: 'silly'
 				}),
 			];
+			if(sysLogger) transports.push(sysLogger);
 			logger = new (winston.Logger)({
 				transports: transports,
 				colors: wconfig.colors
@@ -169,11 +170,11 @@ module.exports = function(config) {
 	return function * (next) {
 		//Request interception
 		start = new Date;
-		console.info('<-- method:[' + this.method 
-			+ '] url:[' + this.url 
-			+ '] host:[' + this.host 
+		console.info('<-- method:[' + this.method
+			+ '] url:[' + this.url
+			+ '] host:[' + this.host
 			+ '] ip:[' + this.ip + ']');
-		
+
 		//Error listener
 		try {
 			yield next;
@@ -185,9 +186,9 @@ module.exports = function(config) {
 		//Response interception
 
   	var delta = new Date - start;
-  	var resp = '--> method:[' + this.method 
-  		+ '] url:[' + this.url 
-  		+ '] status:[' +  this.status 
+  	var resp = '--> method:[' + this.method
+  		+ '] url:[' + this.url
+  		+ '] status:[' +  this.status
   		+ '] time:[' + time.call(null, start) + ']';
   	if(delta > 5000){
   		console.error(resp);
@@ -198,4 +199,3 @@ module.exports = function(config) {
   	}
 	}
 }
-
