@@ -1,11 +1,11 @@
 {
   "name": "sawyer",
-  "version": "1.1.1",
-  "description": "Winston wrapper for formatted logging requests via Koa or generic app",
+  "version": "2.0.0",
+  "description": "Winston wrapper for formatted logging requests.",
   "maintainers": [
-    "thecaddy"
+    "theverything"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
     "node": ">=0.11.14"
   },
@@ -18,5 +18,13 @@
     "object-assign": "^2.0.0",
     "winston": "^0.8.1",
     "winston-syslog": "^0.2.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/zillow-oc/sawyer/issues"
+  },
+  "homepage": "https://github.com/zillow-oc/sawyer",
+  "main": "index.js",
+  "keywords": [
+    "logging"
+  ]
 }
