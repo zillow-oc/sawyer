@@ -5,6 +5,7 @@ Sawyer
 
 ```
 require('sawyer')({
+  syslogEnvs: ['staging', 'production'], // default
   syslog:{
     host: 'mydnshere',
     port: '1234',
