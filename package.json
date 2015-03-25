@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "humanize-number": "0.0.2",
+    "object-assign": "^2.0.0",
     "winston": "^0.8.1",
     "winston-syslog": "^0.2.5"
   }
