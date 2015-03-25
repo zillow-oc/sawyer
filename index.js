@@ -65,7 +65,7 @@ module.exports = function(moduleConfig) {
 		log = sysLogger.log;
 
 		sysLogger.log = function(level, msg, meta, callback){
-			var msgObj = getSyslogMsg(level, msg, meta);
+			var msgObj = util.getSyslogMsg(level, msg, meta);
 			log.call(sysLogger, level, "[JSON.LOG]:" + JSON.stringify(msgObj), meta, callback);
 		}
 	}
@@ -83,21 +83,21 @@ module.exports = function(moduleConfig) {
 
 	// override default console functions
 	console.silly = function(){
-		logger.silly.apply(logger, formatArgs(arguments));
+		logger.silly.apply(logger, util.formatArgs(arguments));
 	};
 	console.log = function(){
-		logger.verbose.apply(logger, formatArgs(arguments));
+		logger.verbose.apply(logger, util.formatArgs(arguments));
 	};
 	console.info = function(){
-		logger.info.apply(logger, formatArgs(arguments));
+		logger.info.apply(logger, util.formatArgs(arguments));
 	};
 	console.warn = function(){
-		logger.warn.apply(logger, formatArgs(arguments));
+		logger.warn.apply(logger, util.formatArgs(arguments));
 	};
 	console.debug = function(){
-		logger.debug.apply(logger, formatArgs(arguments));
+		logger.debug.apply(logger, util.formatArgs(arguments));
 	};
 	console.error = function(){
-		logger.error.apply(logger, formatArgs(arguments));
+		logger.error.apply(logger, util.formatArgs(arguments));
 	};
 };
