@@ -10,10 +10,10 @@ var util = require('./util');
 /****************************
  * Constants
  ****************************/
-var	ENV = process.env.NODE_ENV || '';
+var ENV = process.env.NODE_ENV || '';
 var DEFAULT_CONFIG = {
-			syslogEnvs: ['staging', 'production']
-		};
+	syslogEnvs: ['staging', 'production']
+};
 
 // Setup winston
 require('winston-syslog').SysLog;
