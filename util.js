@@ -1,16 +1,12 @@
 var util = require('util');
-var humanize = require('humanize-number');
 
 function formatArgs(args){
   return [util.format.apply(util, Array.prototype.slice.call(args))];
 }
 
-function time(start) {
-  var delta = new Date - start;
-  delta = delta < 10000
-    ? delta + 'ms'
-    : Math.round(delta / 1000) + 's';
-  return humanize(delta);
+function getTimeStamp() {
+  var date = new Date();
+  return date.toISOString();
 }
 
 function getSyslogMsg(level, msg, meta){
@@ -18,25 +14,22 @@ function getSyslogMsg(level, msg, meta){
     level = 'warning';
   }
 
-  var msgObj = {
-    node_version: process.version,
-    title: process.title,
-    user: process.env.USER,
-    env: process.env.NODE_ENV,
-    level: level,
-    message: msg,
-    meta: meta
-  };
+  var app_ver = process.versions.app || "none";
+  var formattedMsg = util.format(
+    'node_version: %s, app_version: %s, process_title: %s, user: %s, node_env: %s, message: %s',
+    process.version,
+    app_ver,
+    process.title,
+    process.env.USER,
+    process.env.NODE_ENV,
+    msg
+  );
 
-  if(process.versions.app){
-    msgObj.version = process.versions.app;
-  }
-
-  return msgObj;
+  return formattedMsg;
 }
 
 module.exports = {
   formatArgs: formatArgs,
-  time: time,
+  getTimeStamp: getTimeStamp,
   getSyslogMsg: getSyslogMsg
 };

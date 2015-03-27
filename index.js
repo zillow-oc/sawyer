@@ -65,8 +65,8 @@ module.exports = function(moduleConfig) {
 		log = sysLogger.log;
 
 		sysLogger.log = function(level, msg, meta, callback){
-			var msgObj = util.getSyslogMsg(level, msg, meta);
-			log.call(sysLogger, level, "[JSON.LOG]:" + JSON.stringify(msgObj), meta, callback);
+			var formattedMsg = util.getSyslogMsg(level, msg, meta);
+			log.call(sysLogger, level, formattedMsg, meta, callback);
 		}
 	}
 
