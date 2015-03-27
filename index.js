@@ -61,6 +61,7 @@ module.exports = function(moduleConfig) {
 
 	// setup syslog transport and format the message
 	if(config.syslog){
+		config.syslog.timestamp = util.getTimeStamp;
 		sysLogger = new winston.transports.Syslog(config.syslog);
 		log = sysLogger.log;
 
