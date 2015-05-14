@@ -101,4 +101,7 @@ module.exports = function(moduleConfig) {
 	console.error = function(){
 		logger.error.apply(logger, util.formatArgs(arguments));
 	};
+
+	// return the instance of winston to do stuff with if needed
+	return logger;
 };
