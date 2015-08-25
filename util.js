@@ -5,8 +5,9 @@ function formatArgs(args){
 }
 
 function getTimeStamp() {
-  var date = new Date();
-  return date.toISOString();
+  var timeZoneOffset = (new Date().getTimezoneOffset() * 60000);
+  var localISO = (new Date(Date.now() - timeZoneOffset)).toISOString().slice(0,-1);
+  return localISO;
 }
 
 function getSyslogMsg(level, msg, meta){

@@ -34,7 +34,7 @@ module.exports = function(moduleConfig) {
 			handleExceptions: false,
 			json: false,
 			colorize: true,
-			timestamp: true,
+			timestamp: util.getTimeStamp,
 			level: 'debug'
 		})
 	];
