@@ -9,10 +9,7 @@ function getTimeStamp() {
   return date.toISOString();
 }
 
-function getSyslogMsg(level, msg, meta){
-  if (level === 'warn') {
-    level = 'warning';
-  }
+function getSyslogMsg(msg){
 
   var app_ver = process.versions.app || "none";
   var formattedMsg = util.format(
@@ -28,8 +25,17 @@ function getSyslogMsg(level, msg, meta){
   return formattedMsg;
 }
 
+function getSyslogLevel(level){
+  if (level === 'warn') {
+    level = 'warning';
+  }
+
+  return level;
+}
+
 module.exports = {
   formatArgs: formatArgs,
   getTimeStamp: getTimeStamp,
-  getSyslogMsg: getSyslogMsg
+  getSyslogMsg: getSyslogMsg,
+  getSyslogLevel: getSyslogLevel
 };
